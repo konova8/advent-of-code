@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         // Trova la lettera in comune tra le tre parti
         if (k % 3 == 2)
         {
-            printf("first part: %ssecond part: %sthird part: %s\n", firPart, secPart, thiPart);
+            //printf("first part: %ssecond part: %sthird part: %s\n", firPart, secPart, thiPart);
             for (int i = 0; i < strlen(firPart) && !found; i++)
             {
                 for (int j = 0; j < strlen(secPart) && !found; j++)
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
                     }
                 }
             }
-            printf("%c\n", letter);
+            //printf("%c\n", letter);
             if (letter >= 'A' && letter <= 'Z')
                 sum += letter - 38;
             else if (letter >= 'a' && letter <= 'z')
