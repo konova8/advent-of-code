@@ -1,5 +1,6 @@
 .vscode/
 *.out
+Day*
 
 
 ### Go related files
