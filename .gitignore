@@ -1,8 +1,14 @@
-.vscode/
-*.out
-Day*
-.aocdlconfig
+*.tmp
 
+### VsCode
+.vscode/
+
+### AOC specific
+.aocdlconfig
+example
+input
+example.txt
+input.txt
 
 ### Go related files
 # Binaries for programs and plugins
