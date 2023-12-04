@@ -2,9 +2,10 @@ package main
 
 import (
 	_ "embed"
-	util "example.com/goutils"
 	"flag"
 	"fmt"
+	"github.com/atotto/clipboard"
+	"github.com/konova8/advent-of-code/util"
 	"strings"
 )
 
@@ -38,10 +39,12 @@ func main() {
 		if !*noExample {
 			ansExample := part1(example)
 			fmt.Println("Output Example:", ansExample)
+			clipboard.WriteAll(fmt.Sprint(ansExample))
 		}
 		if !*noInput {
 			ansInput := part1(input)
 			fmt.Println("Output Input:", ansInput)
+			clipboard.WriteAll(fmt.Sprint(ansInput))
 		}
 	}
 	if part == "2" || part == "" {
@@ -49,10 +52,12 @@ func main() {
 		if !*noExample {
 			ansExample := part2(example)
 			fmt.Println("Output Example:", ansExample)
+			clipboard.WriteAll(fmt.Sprint(ansExample))
 		}
 		if !*noInput {
 			ansInput := part2(input)
 			fmt.Println("Output Input:", ansInput)
+			clipboard.WriteAll(fmt.Sprint(ansInput))
 		}
 	}
 }
