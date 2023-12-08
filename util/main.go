@@ -12,3 +12,45 @@ func StrReverse(s string) string {
 	}
 	return ret
 }
+
+func gcd(a, b int) int {
+	for b != 0 {
+		t := b
+		b = a % b
+		a = t
+	}
+	return a
+}
+
+func lcm(a, b int, integers ...int) int {
+	result := a * b / gcd(a, b)
+
+	for i := 0; i < len(integers); i++ {
+		result = lcm(result, integers[i])
+	}
+
+	return result
+}
+
+func LCM(numbers ...int) int {
+	if len(numbers) == 0 {
+		return -1
+	}
+	if len(numbers) == 1 {
+		return numbers[0]
+	}
+	return lcm(numbers[0], numbers[1], numbers[2:]...)
+}
+
+func GCD(numbers ...int) int {
+	if len(numbers) == 0 {
+		return -1
+	}
+	if len(numbers) == 1 {
+		return numbers[0]
+	}
+	D := gcd(numbers[0], numbers[1])
+	newNumbers := []int{D}
+	newNumbers = append(newNumbers, numbers[2:]...)
+	return GCD(newNumbers...)
+}
