@@ -7,10 +7,14 @@ import (
 	"github.com/atotto/clipboard"
 	"github.com/konova8/advent-of-code/util"
 	"strings"
+	"time"
 )
 
 //go:embed example.txt
 var example string
+
+//go:embed example2.txt
+var example2 string
 
 //go:embed input.txt
 var input string
@@ -25,6 +29,12 @@ func init() {
 	if len(example) == 0 {
 		panic("empty example.txt file")
 	}
+	example2 = strings.TrimRight(example2, "\n")
+	if len(example2) == 0 {
+		example = example2
+	}
+	p := util.Position{}
+	_ = p
 }
 
 func main() {
@@ -32,42 +42,52 @@ func main() {
 	flag.StringVar(&part, "part", "", "part 1 or 2")
 	noExample := flag.Bool("no-example", false, "you don't want to check example")
 	noInput := flag.Bool("no-input", false, "you don't want to check input")
+	noE := flag.Bool("noe", false, "you don't want to check example")
+	noI := flag.Bool("noi", false, "you don't want to check input")
 	flag.Parse()
 
 	if part == "1" || part == "" {
 		fmt.Println("--- Running part 1 ---")
-		if !*noExample {
-			ansExample := part1(example)
-			fmt.Println("Output Example:", ansExample)
-			clipboard.WriteAll(fmt.Sprint(ansExample))
+		if !*noExample || !*noE {
+			s := time.Now()
+			ansExample := fmt.Sprint(part1(example))
+			fmt.Printf("Output Example: %s\n", ansExample)
+			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
+			clipboard.WriteAll(ansExample)
 		}
-		if !*noInput {
-			ansInput := part1(input)
-			fmt.Println("Output Input:", ansInput)
-			clipboard.WriteAll(fmt.Sprint(ansInput))
+		if !*noInput || !*noI {
+			s := time.Now()
+			ansInput := fmt.Sprint(part1(input))
+			fmt.Printf("Output Input: %s\n", ansInput)
+			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
+			clipboard.WriteAll(ansInput)
 		}
 	}
 	if part == "2" || part == "" {
 		fmt.Println("--- Running part 2 ---")
-		if !*noExample {
-			ansExample := part2(example)
-			fmt.Println("Output Example:", ansExample)
-			clipboard.WriteAll(fmt.Sprint(ansExample))
+		if !*noExample || !*noE {
+			s := time.Now()
+			ansExample := fmt.Sprint(part2(example))
+			fmt.Printf("Output Example: %s\n", ansExample)
+			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
+			clipboard.WriteAll(ansExample)
 		}
-		if !*noInput {
-			ansInput := part2(input)
-			fmt.Println("Output Input:", ansInput)
-			clipboard.WriteAll(fmt.Sprint(ansInput))
+		if !*noInput || !*noI {
+			s := time.Now()
+			ansInput := fmt.Sprint(part2(input))
+			fmt.Printf("Output Input: %s\n", ansInput)
+			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
+			clipboard.WriteAll(ansInput)
 		}
 	}
 }
 
-func part1(str string) string {
-	p := util.Position{}
-	_ = p
-	return str
+func part1(str string) int {
+	ans := 0
+	return ans
 }
 
-func part2(str string) string {
-	return str
+func part2(str string) int {
+	ans := 0
+	return ans
 }
