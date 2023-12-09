@@ -48,7 +48,7 @@ func TestCompareHand2(t *testing.T) {
 		hand: convertHand2(s2),
 		bid:  2,
 	}
-    expected := 1
+	expected := 1
 	actual := CompareHand(hwb1, hwb2)
 	assert.Equal(t, expected, actual)
 }
