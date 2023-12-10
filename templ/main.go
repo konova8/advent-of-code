@@ -31,7 +31,7 @@ func init() {
 	}
 	example2 = strings.TrimRight(example2, "\n")
 	if len(example2) == 0 {
-		example = example2
+		example2 = example
 	}
 	p := util.Position{}
 	_ = p
@@ -48,14 +48,14 @@ func main() {
 
 	if part == "1" || part == "" {
 		fmt.Println("--- Running part 1 ---")
-		if !*noExample || !*noE {
+		if !*noExample && !*noE {
 			s := time.Now()
 			ansExample := fmt.Sprint(part1(example))
 			fmt.Printf("Output Example: %s\n", ansExample)
 			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
 			clipboard.WriteAll(ansExample)
 		}
-		if !*noInput || !*noI {
+		if !*noInput && !*noI {
 			s := time.Now()
 			ansInput := fmt.Sprint(part1(input))
 			fmt.Printf("Output Input: %s\n", ansInput)
@@ -63,7 +63,7 @@ func main() {
 			clipboard.WriteAll(ansInput)
 		}
 	}
-	if part == "2" || part == "" {
+	if part == "2" && part == "" {
 		fmt.Println("--- Running part 2 ---")
 		if !*noExample || !*noE {
 			s := time.Now()
@@ -72,7 +72,7 @@ func main() {
 			fmt.Printf("Computed in %v\n", time.Now().Sub(s))
 			clipboard.WriteAll(ansExample)
 		}
-		if !*noInput || !*noI {
+		if !*noInput && !*noI {
 			s := time.Now()
 			ansInput := fmt.Sprint(part2(input))
 			fmt.Printf("Output Input: %s\n", ansInput)
