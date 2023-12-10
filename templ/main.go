@@ -1,11 +1,11 @@
 package main
 
 import (
+	"advent-of-code/util"
 	_ "embed"
 	"flag"
 	"fmt"
 	"github.com/atotto/clipboard"
-	"github.com/konova8/advent-of-code/util"
 	"strings"
 	"time"
 )

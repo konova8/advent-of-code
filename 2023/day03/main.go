@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/konova8/advent-of-code/util"
+	"advent-of-code/util"
 )
 
 //go:embed example.txt

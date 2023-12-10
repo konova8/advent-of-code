@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"strings"
 
+	"advent-of-code/util"
 	"github.com/atotto/clipboard"
-	"github.com/konova8/advent-of-code/util"
 )
 
 //go:embed example.txt
