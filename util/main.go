@@ -54,3 +54,14 @@ func GCD(numbers ...int) int {
 	newNumbers = append(newNumbers, numbers[2:]...)
 	return GCD(newNumbers...)
 }
+
+type Number interface {
+	int | int8 | int16 | int32 | int64 | float32 | float64
+}
+
+func ABS[T Number](n T) T {
+	if n < 0 {
+		return -n
+	}
+	return n
+}

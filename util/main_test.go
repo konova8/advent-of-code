@@ -48,3 +48,21 @@ func TestLCM2(t *testing.T) {
 		t.Fatalf(`Should be %d, obtained %d`, expected, actual)
 	}
 }
+
+func TestABS(t *testing.T) {
+	n := -3.2
+	actual := ABS(n)
+	expected := 3.2
+	if actual != expected {
+		t.Fatalf(`Should be %f, obtained %f`, expected, actual)
+	}
+}
+
+func TestABS2(t *testing.T) {
+	var n int16 = -4322
+	actual := ABS(n)
+	var expected int16 = 4322
+	if actual != expected {
+		t.Fatalf(`Should be %d, obtained %d`, expected, actual)
+	}
+}
