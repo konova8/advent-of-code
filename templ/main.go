@@ -63,9 +63,9 @@ func main() {
 			clipboard.WriteAll(ansInput)
 		}
 	}
-	if part == "2" && part == "" {
+	if part == "2" || part == "" {
 		fmt.Println("--- Running part 2 ---")
-		if !*noExample || !*noE {
+		if !*noExample && !*noE {
 			s := time.Now()
 			ansExample := fmt.Sprint(part2(example))
 			fmt.Printf("Output Example: %s\n", ansExample)
