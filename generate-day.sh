@@ -39,4 +39,5 @@ firefox --new-window "https://adventofcode.com/${YYYY}/day/${D}"
 mv input.txt $YYYY/${dayDD}/input.txt
 touch $YYYY/${dayDD}/example.txt
 touch $YYYY/${dayDD}/example2.txt
-$EDITOR $YYYY/${dayDD}/main.go
+cd $YYYY/${dayDD}
+$EDITOR main.go
