@@ -1,8 +1,25 @@
 package util
 
+import (
+	"strconv"
+)
+
+func Atoi(s string) int {
+	n, _ := strconv.Atoi(s)
+	return n
+}
+
 type Position struct {
 	X int
 	Y int
+}
+
+func (p1 Position) Add(p2 Position) Position {
+	return Position{p1.X + p2.X, p1.Y + p2.Y}
+}
+
+func (p1 Position) Sub(p2 Position) Position {
+	return Position{p1.X - p2.X, p1.Y - p2.Y}
 }
 
 func StrReverse(s string) string {
