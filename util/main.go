@@ -1,7 +1,9 @@
 package util
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 func Atoi(s string) int {
@@ -81,4 +83,66 @@ func ABS[T Number](n T) T {
 		return -n
 	}
 	return n
+}
+
+type Direction int
+
+const (
+	DirU = iota
+	DirR
+	DirD
+	DirL
+)
+
+var Offsets = [4]Position{
+	{X: 0, Y: -1},
+	{X: 1, Y: 0},
+	{X: 0, Y: 1},
+	{X: -1, Y: 0},
+}
+
+func (d Direction) Rotate(n int) Direction {
+	return Direction((int(d) + (4 + (n % 4))) % 4)
+}
+
+func (d Direction) Clockwise() Direction {
+	return d.Rotate(1)
+}
+
+func (d Direction) AntiClockwise() Direction {
+	return d.Rotate(-1)
+}
+
+var DirToOffset = map[Direction]Position{
+	DirU: {X: 0, Y: -1},
+	DirR: {X: 1, Y: 0},
+	DirD: {X: 0, Y: 1},
+	DirL: {X: -1, Y: 0},
+}
+
+type Grid struct {
+	Grid   [][]byte
+	Height int
+	Width  int
+}
+
+func ParseGrid(str string) Grid {
+	lines := strings.Split(str, "\n")
+	g := Grid{}
+	for _, l := range lines {
+		g.Grid = append(g.Grid, []byte(l))
+	}
+	g.Height = len(lines)
+	g.Width = len(lines[0])
+	return g
+}
+
+func (g Grid) Print() {
+	fmt.Println("Printing Grid...")
+	for _, v := range g.Grid {
+		for _, b := range v {
+			fmt.Printf(string(b))
+		}
+		fmt.Println()
+	}
 }
